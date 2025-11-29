@@ -283,7 +283,7 @@ jobs:
         
       - name: Checkout code
         if: ${{ steps.release_check.outcome == 'success' }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         
       - name: Install GitHub CLI
         if: ${{ steps.release_check.outcome == 'success' }}
