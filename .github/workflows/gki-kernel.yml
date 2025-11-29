@@ -910,7 +910,7 @@ jobs:
           fi
           
       - name: 上传编译资产
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ inputs.kernelsu_variant }}(${{ env.KSU_VERSION }})-${{ env.A_VERSION }}-${{ inputs.kernel_version }}.${{ inputs.sub_level }}
           path: ./AnyKernel3/*
