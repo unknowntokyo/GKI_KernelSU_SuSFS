@@ -441,6 +441,7 @@ jobs:
           fi
 
           # 设置LZ4为默认ZRAM算法
+          cd "$CONFIG"
           echo "CONFIG_ZRAM_DEFAULT_COMPRESS=lz4" >> ./common/arch/arm64/configs/gki_defconfig
           
       - name: 复制源文件 & 应用LZ4KD & ZSTDN补丁
