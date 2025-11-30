@@ -625,9 +625,6 @@ jobs:
 
           # 关闭内核调试
           echo "CONFIG_DEBUG_KERNEL=n" >> ./common/arch/arm64/configs/gki_defconfig
-
-          # 设置LZ4为默认ZRAM算法
-          echo "CONFIG_ZRAM_DEFAULT_COMPRESS=lz4" >> ./common/arch/arm64/configs/gki_defconfig
           
           # Remove check_defconfig
           sed -i 's/check_defconfig//' ./common/build.config.gki
