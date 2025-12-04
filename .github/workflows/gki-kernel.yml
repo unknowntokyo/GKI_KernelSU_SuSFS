@@ -172,7 +172,7 @@ jobs:
           # Sukisu的补丁仓库
           git clone https://github.com/ShirkNeko/SukiSU_patch.git
           # LZ4 1.10.0的补丁仓库
-          git clone https://github.com/unknowntokyo/GKI_KernelSU_SUSFS.git unknown
+          git clone https://github.com/unknowntokyo/GKI_KernelSU_SUSFS.git vk_patch
 
       - name: 初始化和同步内核源代码
         run: |
@@ -394,7 +394,7 @@ jobs:
           echo "更改为配置目录: $CONFIG..."
           cd "$CONFIG/common"
           echo 'LZ4算法升级'
-          cp -r ../../unknown/vk_patch/lz4-1.10.0.patch ./
+          cp -r ../../vk_patch/lz4-1.10.0.patch ./
 
           patch -p1 -F 3 --fuzz=5 < lz4-1.10.0.patch || true
 
