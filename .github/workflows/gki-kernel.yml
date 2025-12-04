@@ -173,7 +173,6 @@ jobs:
           git clone https://github.com/ShirkNeko/SukiSU_patch.git
           # LZ4 1.10.0的补丁仓库
           git clone https://github.com/zzh20188/GKI_KernelSU_SUSFS.git zzh_patch
-          git clone https://github.com/unknowntokyo/GKI_KernelSU_SUSFS vk_patch
 
       - name: 初始化和同步内核源代码
         run: |
@@ -414,7 +413,7 @@ jobs:
 
           cp -r ../../zzh_patch/zram/lz4/* ./lib/lz4/
           cp -r ../../zzh_patch/zram/include/linux/* ./include/linux/
-          cp -r ../../vk_patch/lz4_1.10.0.patch ./
+          cp -r ../../zzh_patch/zram/${{ inputs.kernel_version }}/lz4_1.10.0.patch ./
 
           patch -p1 -F 3 --fuzz=5 < lz4_1.10.0.patch || true
 
