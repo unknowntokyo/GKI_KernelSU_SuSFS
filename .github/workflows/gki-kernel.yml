@@ -456,14 +456,14 @@ jobs:
               fi
           done
 
-          cp -r ../../ssg_patch/Kconfig.iosched ./block/
-          cp -r ../../ssg_patch/Makefile‎ ./block/
-          cp -r ../../ssg_patch/elevator.c ./block/
-          cp -r ../../ssg_patch/blk-sec.h ./block/
-          cp -r ../../ssg_patch/ssg-cgroup.c ./block/
-          cp -r ../../ssg_patch/ssg-iosched.c ./block/
-          cp -r ../../ssg_patch/ssg-stat.c ./block/
-          cp -r ../../ssg_patch/ssg.h ./block/
+          cp -r ../../ssg_patch/block/Kconfig.iosched ./block/
+          cp -r ../../ssg_patch/block/Makefile‎ ./block/
+          cp -r ../../ssg_patch/block/elevator.c ./block/
+          cp -r ../../ssg_patch/block/blk-sec.h ./block/
+          cp -r ../../ssg_patch/block/ssg-cgroup.c ./block/
+          cp -r ../../ssg_patch/block/ssg-iosched.c ./block/
+          cp -r ../../ssg_patch/block/ssg-stat.c ./block/
+          cp -r ../../ssg_patch/block/ssg.h ./block/
           
       - name: 复制源文件 & 应用LZ4KD & ZSTDN补丁
         if: ${{ inputs.more_zram_kpm }}
