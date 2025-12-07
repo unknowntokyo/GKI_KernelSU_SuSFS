@@ -433,6 +433,7 @@ jobs:
           fi
 
       - name: 添加三星SSG IO调度器
+        if: ${{ inputs.kernel_version }} = "6.1"
         run: |
 
           echo "更改为配置目录: $CONFIG..."
