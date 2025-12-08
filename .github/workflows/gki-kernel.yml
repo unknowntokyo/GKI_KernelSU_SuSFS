@@ -173,6 +173,8 @@ jobs:
           git clone https://github.com/ShirkNeko/SukiSU_patch.git
           # LZ4 1.10.0的补丁仓库
           git clone https://github.com/zzh20188/GKI_KernelSU_SUSFS.git zzh_patch
+          # Hymo的补丁仓库
+          git clone https://github.com/Anatdx/hymo.git hymo_patch
 
       - name: 初始化和同步内核源代码
         run: |
@@ -588,7 +590,7 @@ jobs:
           echo "CONFIG_TMPFS_POSIX_ACL=y" >> ./common/arch/arm64/configs/gki_defconfig
 
           # HymoFS补丁
-          patch -p1 -F 3 < https://raw.githubusercontent.com/Anatdx/hymo/refs/heads/master/patch/hymofs.patch
+          patch -p1 -F 3 < hymo_patch/patch/hymofs.patch
           echo "CONFIG_HYMOFS=y" >> ./common/arch/arm64/configs/gki_defconfig
 
           # Add additional config setting
