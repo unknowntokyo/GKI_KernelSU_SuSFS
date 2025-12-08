@@ -589,10 +589,6 @@ jobs:
           echo "CONFIG_TMPFS_XATTR=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_TMPFS_POSIX_ACL=y" >> ./common/arch/arm64/configs/gki_defconfig
 
-          # HymoFS补丁
-          patch -p1 -F 3 < ../hymo_patch/patch/hymofs.patch
-          echo "CONFIG_HYMOFS=y" >> ./common/arch/arm64/configs/gki_defconfig
-
           # Add additional config setting
           echo "CONFIG_IP_NF_TARGET_TTL=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_IP6_NF_TARGET_HL=y" >> ./common/arch/arm64/configs/gki_defconfig
@@ -632,6 +628,13 @@ jobs:
           # Remove check_defconfig
           sed -i 's/check_defconfig//' ./common/build.config.gki
 
+      - name: 配置内核名称
+        run: |
+          echo "应用HymoFS补丁"
+          cd "$CONFIG"
+          patch -p1 -F 3 < ../hymo_patch/patch/hymofs.patch
+          echo "CONFIG_HYMOFS=y" >> ./common/arch/arm64/configs/gki_defconfig
+          
       - name: 配置内核名称
         run: |
           echo "更改为配置目录: $CONFIG..."
