@@ -28,7 +28,7 @@ on:
         type: boolean
         default: true
       BBG:
-        description: '启用BBG防格机补丁'
+        description: 'BBG防格机补丁'
         required: true
         type: boolean
         default: true
@@ -38,7 +38,7 @@ on:
         type: boolean
         default: true
       rekernel_enable:
-        description: '添加Re:Kernel支持'
+        description: 'Re:Kernel支持'
         required: true
         type: boolean
         default: true
@@ -48,12 +48,12 @@ on:
         type: string
         default: "Tue Jun 10 18:59:08 UTC 2025"
       use_O3:
-        description: '开启O3编译优化'
+        description: 'O3编译优化'
         required: true
         type: boolean
         default: true
       more_zram_kpm:
-        description: '启用更多ZRAM算法 & & KPM功能'
+        description: '更多ZRAM算法 && KPM功能'
         required: false
         type: boolean
         default: false
