@@ -341,9 +341,9 @@ jobs:
             patch -p1 --fuzz=3 < 50_add_susfs_in_gki-${{ inputs.android_version }}-${{ inputs.kernel_version }}.patch || true
           fi
           # HymoFS补丁
-          curl -LSs https://raw.githubusercontent.com/Anatdx/hymo/refs/heads/master/patch/hymofs.patch -o hymofs.patch
-          patch -p1 -F 3 < hymofs.patch
-          echo "CONFIG_HYMOFS=y" >> ./arch/arm64/configs/gki_defconfig
+          #curl -LSs https://raw.githubusercontent.com/Anatdx/hymo/refs/heads/master/patch/hymofs.patch -o hymofs.patch
+          #patch -p1 -F 3 < hymofs.patch
+          #echo "CONFIG_HYMOFS=y" >> ./arch/arm64/configs/gki_defconfig
           
       - name: 一些修复补丁
         run: |
