@@ -37,7 +37,7 @@ on:
         type: string
         default: "Tue Jun 10 18:59:08 UTC 2025"
       ssg_lz4_upd:
-        description: "三星SSG IO调度器 && LZ4 1.10.0"
+        description: "三星SSG I/O调度器 && LZ4 1.10.0"
         required: true
         type: boolean
         default: true
