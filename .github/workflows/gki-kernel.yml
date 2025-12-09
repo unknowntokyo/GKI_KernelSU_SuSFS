@@ -446,6 +446,10 @@ jobs:
           else
               echo "文件不存在: fs/f2fs/Makefile"
           fi
+
+          echo "启用三星SSG I/O调度器"
+          echo "CONFIG_MQ_IOSCHED_SSG=y" >> ./arch/arm64/configs/gki_defconfig
+          echo "CONFIG_MQ_IOSCHED_SSG_CGROUP=y" >> ./arch/arm64/configs/gki_defconfig
           
       - name: 复制源文件 & 应用LZ4KD & ZSTDN补丁
         if: ${{ inputs.more_zram_kpm }}
