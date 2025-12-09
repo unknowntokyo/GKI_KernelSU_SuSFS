@@ -408,7 +408,7 @@ jobs:
               "lib/lz4/lz4defs.h"
               "lib/lz4/lz4hc_compress.c"
               "block/Kconfig.iosched"
-              "block/Makefile"
+              "block/Makefile.txt"
               "block/elevator.c"
               "block/blk-sec.h"
           )
