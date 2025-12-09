@@ -36,8 +36,8 @@ on:
         required: true
         type: string
         default: "Tue Jun 10 18:59:08 UTC 2025"
-      lz4_upd:
-        description: "升级LZ4算法至1.10.0?"
+      ssg_lz4_upd:
+        description: "添加三星SSG IO调度器 && 升级LZ4算法至1.10.0?"
         required: true
         type: boolean
         default: true
@@ -76,7 +76,7 @@ jobs:
       kernelsu_variant: ${{ inputs.kernelsu_variant }}
       kernelsu_branch: ${{ inputs.kernelsu_branch }}
       version: ${{ inputs.version }}
-      lz4_upd: ${{ inputs.lz4_upd }}
+      ssg_lz4_upd: ${{ inputs.ssg_lz4_upd }}
       BBG: ${{ inputs.BBG }}
       set_defbbr: ${{ inputs.set_defbbr }}
       rekernel_enable: ${{ inputs.rekernel_enable }}
