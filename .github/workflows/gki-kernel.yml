@@ -426,7 +426,8 @@ jobs:
           cp -r ../../zzh_patch/zram/include/linux/* ./include/linux/
           cp -r ../../zzh_patch/zram/${{ inputs.kernel_version }}/lz4_1.10.0.patch ./
           patch -p1 -F 3 --fuzz=5 < lz4_1.10.0.patch || true
-          
+          cd " ../../ssg_patch"
+          ls
           cp -r ../../ssg_patch/block/Kconfig.iosched ./block/
           cp -r ../../ssg_patch/block/Makefile‎ ./block/
           cp -r ../../ssg_patch/block/elevator.c ./block/
