@@ -425,7 +425,7 @@ jobs:
           cp -r ../../zzh_patch/zram/include/linux/* ./include/linux/
           cp -r ../../zzh_patch/zram/${{ inputs.kernel_version }}/lz4_1.10.0.patch ./
           cp -r ../../ssg_patch/SSG/Kconfig.iosched ./block/
-          cp -r ../../ssg_patch/SSG/Makefile.txt‎ ./block/
+          cp -r ../../ssg_patch/SSG/Makefile.txt‎ ./block/Makefile
           cp -r ../../ssg_patch/SSG/elevator.c ./block/
           cp -r ../../ssg_patch/SSG/blk-sec.h ./block/
           cp -r ../../ssg_patch/SSG/ssg-cgroup.c ./block/
