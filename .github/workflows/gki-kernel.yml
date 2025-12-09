@@ -175,8 +175,7 @@ jobs:
           git clone https://github.com/zzh20188/GKI_KernelSU_SUSFS.git zzh_patch
           # SSG IO调度器的补丁仓库
           git clone --filter=blob:none --sparse --no-checkout https://github.com/cctv18/android_kernel_common_oneplus_sm8650/tree/oneplus/sm8650_v_15.0.0_oneplus12_6.1.118.git ssg_patch && cd ssg_patch && git sparse-checkout set block && git checkout
-          cd " ssg_patch"
-          ls
+          ls ssg_patch
           
       - name: 初始化和同步内核源代码
         run: |
