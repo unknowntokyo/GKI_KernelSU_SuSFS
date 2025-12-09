@@ -37,32 +37,32 @@ on:
         type: string
         default: "Tue Jun 10 18:59:08 UTC 2025"
       ssg_lz4_upd:
-        description: "添加三星SSG IO调度器 && 升级LZ4算法至1.10.0?"
+        description: "三星SSG IO调度器 && LZ4 1.10.0"
         required: true
         type: boolean
         default: true
       BBG:
-        description: "是否启用BBG防格机补丁?"
+        description: "BBG防格机补丁"
         required: true
         type: boolean
         default: true
       set_defbbr:
-        description: "是否将BBR设为默认拥塞算法?"
+        description: "将BBR设为默认拥塞算法"
         required: true
         type: boolean
         default: true
       rekernel_enable:
-        description: "添加Re:Kernel支持?"
+        description: "添加Re:Kernel支持"
         required: true
         type: boolean
         default: true
       use_O3:
-        description: "是否开启O3编译优化?"
+        description: "开启O3编译优化"
         required: true
         type: boolean
         default: true
       more_zram_kpm:
-        description: "启用更多ZRAM算法和KPM功能?"
+        description: "启用更多ZRAM算法 && KPM功能"
         required: false
         type: boolean
         default: false
