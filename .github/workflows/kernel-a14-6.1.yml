@@ -23,7 +23,7 @@ on:
         type: string
         default: "-android14-11-gca0ef6d17716-ab13624819"
       ssg_lz4_upd:
-        description: '三星SSG IO调度器 && LZ4 1.10.0'
+        description: '三星SSG I/O调度器 && LZ4 1.10.0'
         required: true
         type: boolean
         default: true
