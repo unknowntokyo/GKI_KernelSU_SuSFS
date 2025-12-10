@@ -28,9 +28,6 @@ on:
       kernelsu_branch:
         required: true
         type: string
-      # kernelsu_branch_other:
-      #   required: false
-      #   type: string
       revision:
         required: false
         type: string
@@ -42,10 +39,6 @@ on:
         type: boolean
         default: true
       BBG:
-        required: true
-        type: boolean
-        default: true
-      set_defbbr:
         required: true
         type: boolean
         default: true
