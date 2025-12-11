@@ -443,7 +443,7 @@ jobs:
               echo "文件不存在: fs/f2fs/Makefile"
           fi
 
-      - name: 添加PIXIE TCP拥塞算法
+      - name: 添加pixie TCP拥塞算法
         run: |
 
           echo "更改为配置目录: $CONFIG..."
