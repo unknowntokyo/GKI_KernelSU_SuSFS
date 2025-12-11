@@ -397,7 +397,7 @@ jobs:
 
           echo "更改为配置目录: $CONFIG..."
           cd "$CONFIG/common"
-          echo '添加三星SSG I/O调度器 && LZ4算法升级'
+          echo 'LZ4算法升级 && 添加三星SSG I/O调度器'
           # 删除旧有文件
           files=(
               "block/Kconfig.iosched"
