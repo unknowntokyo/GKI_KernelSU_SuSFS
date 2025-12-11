@@ -471,7 +471,7 @@ jobs:
           echo "启用pixie TCP拥塞算法"
           echo "CONFIG_TCP_CONG_ADVANCED=y" >> ./arch/arm64/configs/gki_defconfig
           echo "CONFIG_TCP_CONG_PIXIE=y" >> ./arch/arm64/configs/gki_defconfig
-          echo "CONFIG_DEFAULT_TCP_CONG=pixie" >> ./arch/arm64/configs/gki_defconfig
+          echo "CONFIG_DEFAULT_PIXIE=y" >> ./arch/arm64/configs/gki_defconfig
           
       - name: 复制源文件 & 应用lz4kd & zstdn补丁
         if: ${{ inputs.more_zram_kpm }}
