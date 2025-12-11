@@ -430,7 +430,6 @@ config TCP_CONG_PIXIE
 	default n
 	help
 	  PIXIE TCP congestion control algorithm.
-      See https://github.com/marywangran/pixie
 config TCP_CONG_WESTWOOD
 	tristate "TCP Westwood+"
 	default m
