@@ -448,7 +448,7 @@ jobs:
 
           echo "更改为配置目录: $CONFIG..."
           cd "$CONFIG/common"
-          echo '添加PIXIE TCP拥塞算法'
+          echo '添加pixie TCP拥塞算法'
           # 删除旧有文件
           files=(
               "net/ipv4/Kconfig"
@@ -468,7 +468,7 @@ jobs:
           cp -r ../../unknown_patch/pixie/Makefile.txt ./net/ipv4/Makefile
           cp -r ../../unknown_patch/pixie/tcp_pixie.c ./net/ipv4/
 
-          echo "启用PIXIE TCP拥塞算法"
+          echo "启用pixie TCP拥塞算法"
           echo "CONFIG_TCP_CONG_ADVANCED=y" >> ./arch/arm64/configs/gki_defconfig
           echo "CONFIG_TCP_CONG_PIXIE=y" >> ./arch/arm64/configs/gki_defconfig
           echo "CONFIG_DEFAULT_TCP_CONG=pixie" >> ./arch/arm64/configs/gki_defconfig
