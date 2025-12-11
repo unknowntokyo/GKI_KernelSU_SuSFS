@@ -29,7 +29,7 @@ on:
         type: string
         default: "Tue Jun 10 18:59:08 UTC 2025"
       lz4_upd:
-        description: 'LZ4 1.10.0'
+        description: 'lz4 1.10.0'
         required: true
         type: boolean
         default: true
