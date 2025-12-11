@@ -36,13 +36,13 @@ on:
         required: true
         type: string
         default: "Tue Jun 10 18:59:08 UTC 2025"
-      ssg_lz4_upd:
-        description: "三星SSG I/O调度器 && LZ4 1.10.0"
+      lz4_upd:
+        description: "LZ4 1.10.0"
         required: true
         type: boolean
         default: true
-      BBG:
-        description: "BBG防格机补丁"
+      ssg_upd:
+        description: "三星SSG I/O调度器"
         required: true
         type: boolean
         default: true
@@ -53,6 +53,11 @@ on:
         default: true
       use_O3:
         description: "O3编译优化"
+        required: true
+        type: boolean
+        default: true
+      BBG:
+        description: "BBG防格机补丁"
         required: true
         type: boolean
         default: true
@@ -71,9 +76,9 @@ jobs:
       kernelsu_variant: ${{ inputs.kernelsu_variant }}
       kernelsu_branch: ${{ inputs.kernelsu_branch }}
       version: ${{ inputs.version }}
-      ssg_lz4_upd: ${{ inputs.ssg_lz4_upd }}
-      BBG: ${{ inputs.BBG }}
-      rekernel_enable: ${{ inputs.rekernel_enable }}
       build_time: ${{ inputs.build_time }}
+      ssg_lz4_upd: ${{ inputs.ssg_lz4_upd }}
+      rekernel_enable: ${{ inputs.rekernel_enable }}
       use_O3: ${{ inputs.use_O3 }}
+      BBG: ${{ inputs.BBG }}
       more_zram_kpm: ${{ inputs.more_zram_kpm }}
