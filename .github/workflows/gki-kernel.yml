@@ -170,7 +170,7 @@ jobs:
           git clone https://github.com/ShirkNeko/SukiSU_patch.git
           # lz4 1.10.0的补丁仓库
           git clone https://github.com/zzh20188/GKI_KernelSU_SUSFS.git zzh_patch
-          # SSG I/O调度器、pixie TCP拥塞算法的补丁仓库（SSG I/O调度器 搬运自https://github.com/cctv18/android_kernel_common_oneplus_sm8650/tree/oneplus/sm8650_v_15.0.0_oneplus12_6.1.118/block）
+          # SSG I/O调度器的补丁仓库（搬运自https://github.com/cctv18/android_kernel_common_oneplus_sm8650/tree/oneplus/sm8650_v_15.0.0_oneplus12_6.1.118/block）
           git clone https://github.com/unknowntokyo/GKI_KernelSU_SUSFS.git unknown_patch
           
       - name: 初始化和同步内核源代码
@@ -442,36 +442,6 @@ jobs:
           else
               echo "文件不存在: fs/f2fs/Makefile"
           fi
-
-      - name: 添加pixie TCP拥塞算法
-        run: |
-
-          echo "更改为配置目录: $CONFIG..."
-          cd "$CONFIG/common"
-          echo '添加pixie TCP拥塞算法'
-          # 删除旧有文件
-          files=(
-              "net/ipv4/Kconfig"
-              "net/ipv4/Makefile"
-          )
-
-          for file in "${files[@]}"; do
-              if [ -e "$file" ]; then
-                  rm "$file"
-                  echo "$file 已删除"
-              else
-                  echo "$file 不存在"
-              fi
-          done
-
-          cp -r ../../unknown_patch/pixie/Kconfig.txt ./net/ipv4/Kconfig
-          cp -r ../../unknown_patch/pixie/Makefile.txt ./net/ipv4/Makefile
-          cp -r ../../unknown_patch/pixie/tcp_pixie.c ./net/ipv4/
-
-          echo "启用pixie TCP拥塞算法"
-          echo "CONFIG_TCP_CONG_ADVANCED=y" >> ./arch/arm64/configs/gki_defconfig
-          echo "CONFIG_TCP_CONG_PIXIE=y" >> ./arch/arm64/configs/gki_defconfig
-          echo "CONFIG_DEFAULT_PIXIE=y" >> ./arch/arm64/configs/gki_defconfig
           
       - name: 复制源文件 & 应用lz4kd & zstdn补丁
         if: ${{ inputs.more_zram_kpm }}
