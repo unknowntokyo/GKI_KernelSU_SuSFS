@@ -50,9 +50,9 @@ on:
         default: true
       BBG:
         description: 'BBG防格机补丁'
-        required: false
+        required: true
         type: boolean
-        default: false
+        default: true
       more_zram_kpm:
         description: '更多ZRAM算法 && KPM功能'
         required: false
