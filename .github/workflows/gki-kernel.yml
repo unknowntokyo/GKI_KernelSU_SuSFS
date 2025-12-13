@@ -54,9 +54,9 @@ on:
         type: boolean
         default: true
       BBG:
-        required: false
+        required: true
         type: boolean
-        default: false
+        default: true
       more_zram_kpm:
         required: false
         type: boolean
