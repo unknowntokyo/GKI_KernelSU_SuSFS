@@ -611,7 +611,7 @@ jobs:
           echo "CONFIG_BPF_STREAM_PARSER=y" >> ./common/arch/arm64/configs/gki_defconfig
 
           # Add SUSFS configuration settings
-          echo "CONFIG_KSU_SUSFS=y" >> ./common/arch/arm64/configs/gki_defconfig
+          echo "CONFIG_KSU_SUSFS=n" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_KSU_SUSFS_SUS_MAP=y" >> ./common/arch/arm64/configs/gki_defconfig
           if [ "${{ inputs.kernel_version }}" != "6.6" ]; then
           echo "CONFIG_KSU_SUSFS_SUS_PATH=y" >> ./common/arch/arm64/configs/gki_defconfig
