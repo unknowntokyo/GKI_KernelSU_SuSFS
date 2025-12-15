@@ -44,7 +44,7 @@ on:
         type: boolean
         default: true
       kpm_enable:
-        description: 'KPM功能'
+        description: 'KPM支持'
         required: true
         type: boolean
         default: true
