@@ -49,7 +49,7 @@ on:
         required: true
         type: boolean
         default: true
-      use_O3:
+      kpm_enable:
         required: true
         type: boolean
         default: true
@@ -57,7 +57,7 @@ on:
         required: true
         type: boolean
         default: true
-      more_zram_kpm:
+      more_zram:
         required: false
         type: boolean
         default: false
@@ -449,7 +449,7 @@ jobs:
           fi
           
       - name: 复制源文件 & 应用lz4kd & zstdn补丁
-        if: ${{ inputs.more_zram_kpm }}
+        if: ${{ inputs.more_zram }}
         run: |
           echo "更改为配置目录: $CONFIG..."
           cd "$CONFIG/common"
@@ -524,7 +524,7 @@ jobs:
           fi
 
       - name: lz4kd & lz4k_oplus配置
-        if: ${{ inputs.more_zram_kpm }}
+        if: ${{ inputs.more_zram }}
         run: |
           set -x
           set -e
@@ -584,10 +584,10 @@ jobs:
           if [ "${{ inputs.kernelsu_variant }}" == "Next" ]; then
             echo "CONFIG_KSU_KPROBES_HOOK=n" >> ./common/arch/arm64/configs/gki_defconfig
             echo "CONFIG_KSU_SUSFS_SUS_SU=n" >> ./common/arch/arm64/configs/gki_defconfig
-          elif [ "${{ inputs.kernelsu_variant }}" == "SukiSU"  && [ "${{ inputs.more_zram_kpm }}" == "true" ]; then
+          elif [ "${{ inputs.kernelsu_variant }}" == "SukiSU"  && [ "${{ inputs.kpm_enable }}" == "true" ]; then
             echo "CONFIG_KPM=y" >> ./common/arch/arm64/configs/gki_defconfig
             echo "CONFIG_KSU_SUSFS_SUS_SU=n" >> ./common/arch/arm64/configs/gki_defconfig
-          elif [ "${{ inputs.kernelsu_variant }}" == "SukiSU"  && [ "${{ inputs.more_zram_kpm }}" == "false" ]; then
+          elif [ "${{ inputs.kernelsu_variant }}" == "SukiSU"  && [ "${{ inputs.kpm_enable }}" == "false" ]; then
             echo "CONFIG_KPM=n" >> ./common/arch/arm64/configs/gki_defconfig
             echo "CONFIG_KSU_SUSFS_SUS_SU=n" >> ./common/arch/arm64/configs/gki_defconfig
           elif [ "${{ inputs.kernelsu_variant }}" == "MKSU" ]; then
@@ -685,7 +685,6 @@ jobs:
           fi
 
       - name: 编译优化
-        if: ${{ inputs.use_O3 }}
         run: |
           cd "$CONFIG"
           echo "启用 O3 编译优化..."
@@ -727,7 +726,7 @@ jobs:
             ccache --show-stats
             
       - name: 修补 Image 文件 安卓12和安卓13(仅限SukiSU)
-        if: ${{ inputs.more_zram_kpm && inputs.kernelsu_variant == 'SukiSU' && (inputs.android_version == 'android12' || inputs.android_version == 'android13') }}
+        if: ${{ inputs.kpm_enable && inputs.kernelsu_variant == 'SukiSU' && (inputs.android_version == 'android12' || inputs.android_version == 'android13') }}
         run: |
           if [ "${{ inputs.kernel_version }}" != "6.6" ]; then
             echo "Patching Image file..."
@@ -741,7 +740,7 @@ jobs:
           fi
 
       - name: 修补 Image 文件 安卓14和安卓15(仅限SukiSU)
-        if: ${{ inputs.more_zram_kpm && inputs.kernelsu_variant == 'SukiSU' && (inputs.android_version == 'android14' || inputs.android_version == 'android15') }}
+        if: ${{ inputs.kpm_enable && inputs.kernelsu_variant == 'SukiSU' && (inputs.android_version == 'android14' || inputs.android_version == 'android15') }}
         run: |
           if [ "${{ inputs.kernel_version }}" != "6.6" ]; then
             echo "Patching Image file..."
