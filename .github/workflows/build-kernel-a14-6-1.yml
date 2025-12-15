@@ -62,7 +62,7 @@ on:
         type: boolean
         default: true
       more_zram:
-        description: "更多ZRAM算法"
+        description: "更多zRAM内存压缩算法"
         required: false
         type: boolean
         default: false
