@@ -84,4 +84,4 @@ jobs:
       rekernel_enable: ${{ inputs.rekernel_enable }}
       kpm_enable: ${{ inputs.kpm_enable }}
       BBG: ${{ inputs.BBG }}
-      more_zram: ${{ inputs.more_zram_kpm }}
+      more_zram: ${{ inputs.more_zram }}
