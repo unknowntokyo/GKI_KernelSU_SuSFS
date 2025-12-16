@@ -171,7 +171,7 @@ jobs:
           # lz4 1.10.0的补丁仓库
           git clone https://github.com/zzh20188/GKI_KernelSU_SUSFS.git zzh_patch
           # SSG I/O调度器的补丁仓库（搬运自https://github.com/cctv18/android_kernel_common_oneplus_sm8650/tree/oneplus/sm8650_v_15.0.0_oneplus12_6.1.118/block）
-          git clone https://github.com/unknowntokyo/GKI_KernelSU_SUSFS.git unknown_patch
+          git clone https://github.com/unknowntokyo/GKI_KernelSU_SuSFS.git unknown_patch
           
       - name: 初始化和同步内核源代码
         run: |
