@@ -572,7 +572,7 @@ jobs:
             echo "CONFIG_ZRAM_WRITEBACK=n" >> "$CONFIG_FILE"
           fi
            
-      - name: SuSFS配置设置 && 添加KPM支持
+      - name: SuSFS配置设置
         run: |
           echo "更改为配置目录: $CONFIG..."
           cd "$CONFIG"
@@ -584,11 +584,8 @@ jobs:
           if [ "${{ inputs.kernelsu_variant }}" == "Next" ]; then
             echo "CONFIG_KSU_KPROBES_HOOK=n" >> ./common/arch/arm64/configs/gki_defconfig
             echo "CONFIG_KSU_SUSFS_SUS_SU=n" >> ./common/arch/arm64/configs/gki_defconfig
-          elif [ "${{ inputs.kernelsu_variant }}" == "SukiSU"] && ["${{ inputs.kpm_enable }}" == "true" ]; then
+          elif [ "${{ inputs.kernelsu_variant }}" == "SukiSU" ]; then
             echo "CONFIG_KPM=y" >> ./common/arch/arm64/configs/gki_defconfig
-            echo "CONFIG_KSU_SUSFS_SUS_SU=n" >> ./common/arch/arm64/configs/gki_defconfig
-          elif [ "${{ inputs.kernelsu_variant }}" == "SukiSU"] && ["${{ inputs.kpm_enable }}" == "false" ]; then
-            echo "CONFIG_KPM=n" >> ./common/arch/arm64/configs/gki_defconfig
             echo "CONFIG_KSU_SUSFS_SUS_SU=n" >> ./common/arch/arm64/configs/gki_defconfig
           elif [ "${{ inputs.kernelsu_variant }}" == "MKSU" ]; then
             echo "CONFIG_KSU_SUSFS_SUS_SU=n" >> ./common/arch/arm64/configs/gki_defconfig
