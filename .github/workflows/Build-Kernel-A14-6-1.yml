@@ -69,7 +69,7 @@ on:
 
 jobs:
   build-kernel-a14-6-1:
-    uses: ./.github/workflows/kernel-a14-6.1.yml
+    uses: ./.github/workflows/Kernel-A14-6.1.yml
     secrets: inherit
     with:
       make_release: false
