@@ -18,6 +18,10 @@ on:
         required: true
         type: string
         default: Dev
+      sukisu_branch:
+        required: true
+        type: string
+        default: builtin
       version:
         description: "自定义版本名"
         required: true
@@ -53,11 +57,6 @@ on:
         required: false
         type: boolean
         default: false
-      more_zram:
-        description: '更多zRAM内存压缩算法'
-        required: false
-        type: boolean
-        default: false
         
 jobs:
   build-kernel-a14-6-1-kernelsu-susfs:
@@ -77,6 +76,7 @@ jobs:
       os_patch_level: ${{ matrix.os_patch_level }}
       kernelsu_variant: ${{ inputs.kernelsu_variant }}
       kernelsu_branch: ${{ inputs.kernelsu_branch }}
+      sukisu_branch: ${{ inputs.sukisu_branch }}
       version: ${{ inputs.version }}
       build_time: ${{ inputs.build_time }}
       lz4_upd: ${{ inputs.lz4_upd }}
@@ -84,4 +84,3 @@ jobs:
       rekernel_enable: ${{ inputs.rekernel_enable }}
       BBG: ${{ inputs.BBG }}
       kpm_enable: ${{ inputs.kpm_enable }}
-      more_zram: ${{ inputs.more_zram }}
