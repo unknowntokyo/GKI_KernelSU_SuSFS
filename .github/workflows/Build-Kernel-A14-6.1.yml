@@ -26,6 +26,14 @@ on:
           - "Dev(开发)"
           - "Other(其他/指定)"
         default: "Dev(开发)"
+      sukisu_branch:
+        description: "选择 sukisu 分支"
+        required: true
+        type: choice
+        options:
+          - "builtin"
+          - "tmp-builtin"
+        default: "builtin"
       version:
         description: "自定义版本名"
         required: true
@@ -61,11 +69,6 @@ on:
         required: false
         type: boolean
         default: false
-      more_zram:
-        description: "更多zRAM内存压缩算法"
-        required: false
-        type: boolean
-        default: false
 
 jobs:
   build-kernel-a14-6-1:
@@ -75,6 +78,7 @@ jobs:
       make_release: false
       kernelsu_variant: ${{ inputs.kernelsu_variant }}
       kernelsu_branch: ${{ inputs.kernelsu_branch }}
+      sukisu_branch: ${{ inputs.sukisu_branch }}  
       version: ${{ inputs.version }}
       build_time: ${{ inputs.build_time }}
       lz4_upd: ${{ inputs.lz4_upd }}
@@ -82,4 +86,3 @@ jobs:
       rekernel_enable: ${{ inputs.rekernel_enable }}
       BBG: ${{ inputs.BBG }}
       kpm_enable: ${{ inputs.kpm_enable }}
-      more_zram: ${{ inputs.more_zram }}
