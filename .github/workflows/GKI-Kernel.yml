@@ -486,9 +486,8 @@ jobs:
             patch -p1 -F 3 < 69_hide_stuff.patch
           fi
 
-      - name: 克隆性能补丁仓库
+      - name: 克隆WildKernels内核补丁仓库
         run: |
-          echo "=== 克隆性能补丁仓库 ==="
           git clone https://github.com/WildKernels/kernel_patches.git Wild_kernel_patches --depth=1
           ls -la Wild_kernel_patches/common/ || echo "Failed to clone Wild_kernel_patches"
       
