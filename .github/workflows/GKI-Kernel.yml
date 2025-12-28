@@ -491,7 +491,7 @@ jobs:
           git clone https://github.com/WildKernels/kernel_patches.git Wild_kernel_patches --depth=1
           ls -la Wild_kernel_patches/common/ || echo "Failed to clone Wild_kernel_patches"
       
-      - name: Apply UNICODE_BYPASS and MEMORY_OPT
+      - name: 应用Unicode零宽绕过修复与性能优化补丁
         run: |
           cd "$CONFIG/common"
           patch -p1 --forward < "../../Wild_kernel_patches/common/optimized_mem_operations.patch"
