@@ -491,7 +491,7 @@ jobs:
           git clone https://github.com/WildKernels/kernel_patches.git Wild_kernel_patches --depth=1
           ls -la Wild_kernel_patches/common/ || echo "Failed to clone Wild_kernel_patches"
       
-      - name: 应用Unicode零宽绕过修复与性能优化补丁
+      - name: 应用性能优化补丁
         run: |
           cd "$CONFIG/common"
           patch -p1 --forward < "../../Wild_kernel_patches/common/optimized_mem_operations.patch"
@@ -499,12 +499,8 @@ jobs:
           patch -p1 --forward < "../../Wild_kernel_patches/common/reduce_cache_pressure.patch"
           if [ "${{ inputs.kernel_version }}" = "5.10" ] || [ "${{ inputs.kernel_version }}" = "5.15" ]; then
             patch -p1 --forward < "../../Wild_kernel_patches/common/clear_page_16bytes_align.patch"
-            echo "Patching unicode!"
-            patch -p1 --forward < "../../Wild_kernel_patches/common/unicode_bypass_fix_6.1-.patch"
           else
             cat "../../Wild_kernel_patches/common/clear_page_16bytes_align.patch" | sed -e 's/SYM_FUNC_START_PI(clear_page)/SYM_FUNC_START_PI(__pi_clear_page)/' | patch -p1 -F3 --forward
-            echo "Patching unicode!"
-            patch -p1 --forward < "../../Wild_kernel_patches/common/unicode_bypass_fix_6.1+.patch"
           fi
            
       - name: SuSFS配置设置
